@@ -19,7 +19,7 @@ def KNN(X_train, X_test, Y_train, Y_test, K):
 
 # Funkcja przeprowadzająca klasyfikację Random Forest
 def RandomForest(X_train, X_test, Y_train, Y_test, Trees):
-    # Dopasowanie klasyfikatora Random forest dla danych treningowych
+    # Budowanie lasu losowego dla danych treningowych
     rf = RandomForestClassifier(n_estimators=Trees)
     rf.fit(X_train, Y_train)
 
