@@ -33,7 +33,7 @@ def RandomForest(X_train, X_test, Y_train, Y_test, Trees):
 # Przygotowanie danych do klasyfikacji
 X, Y = Prepare("magic04.data")
 
-# Wybór liczby najbliższych sąsiadów oraz liczby drzeww lesie
+# Wybór liczby najbliższych sąsiadów oraz liczby drzeww lesies
 K = 10
 Trees = 50
 
@@ -68,6 +68,10 @@ for i in range(len(Y_pred_RandomForest)):
     else:
         TP2 += 1
 
+# Wyliczenie losowych skuteczności klasyfikacji
+print("Losowa skuteczność dla klasy 1 = ",(TP1+FN1)/(TP1 + TN1 + FP1 + FN1))
+print("Losowo skuteczność dla klasy 0 = ",(TN1+FP1)/(TP1 + TN1 + FP1 + FN1))
+
 # Wyświetlenie wyników i obliczenie miar klasyfikacji dla KNN
 print("-----Klasyfikator KNN-----")
 print("Wartości macierzy klasyfikacji:")
@@ -76,6 +80,8 @@ print("FN =", FN1, "   ", "TN =", TN1)
 print("Trafność =", (TP1 + TN1) / (TP1 + TN1 + FP1 + FN1))
 print("Czułość =", TP1 / (TP1 + FN1))
 print("Specyficzność =", TN1 / (TN1 + FP1))
+print("Przyrost dla klasy 1 =", (TP1 / (TP1 + FN1))/((TP1+FN1)/(TP1 + TN1 + FP1 + FN1)))
+print("Przyrost dla klasy 0 =",(TN1 / (TN1 + FP1))/((TN1+FP1)/(TP1 + TN1 + FP1 + FN1)))
 print("-----------------------------")
 
 # Wyświetlenie wyników i obliczenie miar klasyfikacji dla Random Forest
@@ -86,3 +92,5 @@ print("FN =", FN2, "   ", "TN =", TN2)
 print("Trafność =", (TP2 + TN2) / (TP2 + TN2 + FP2 + FN2))
 print("Czułość =", TP2 / (TP2 + FN2))
 print("Specyficzność =", TN2 / (TN2 + FP2))
+print("Przyrost dla klasy 1 =", (TP2 / (TP2 + FN2))/((TP2+FN2)/(TP2 + TN2 + FP2 + FN2)))
+print("Przyrost dla klasy 0 =",(TN2 / (TN2 + FP2))/((TN2+FP2)/(TP2 + TN2 + FP2 + FN2)))
